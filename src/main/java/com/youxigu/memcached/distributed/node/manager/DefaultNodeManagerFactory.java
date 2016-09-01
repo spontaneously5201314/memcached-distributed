@@ -2,7 +2,6 @@ package com.youxigu.memcached.distributed.node.manager;
 
 import com.youxigu.memcached.distributed.algorithm.Algorithm;
 import com.youxigu.memcached.distributed.node.MemcachedNode;
-import com.youxigu.utils.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Created by a on 2016/8/27.
  */
-public class DefaultNodeManagerFactory implements NodeManagerFactory {
+public class DefaultNodeManagerFactory extends NodeManagerFactoryAdapter{
 
     private static final Logger logger = LoggerFactory.getLogger(DefaultNodeManagerFactory.class);
 
@@ -90,27 +89,5 @@ public class DefaultNodeManagerFactory implements NodeManagerFactory {
         }
         //替换node
         memcachedNodeMap.put(algorithm.hash(newKey), parseKeyToNode(newKey));
-    }
-
-    @Override
-    public MemcachedNode parseKeyToNode(String key) {
-        MemcachedNode memcachedNode = null;
-        String[] strings = StringUtils.split(key, ":");
-        if(strings == null || strings.length != 2){
-            logger.error("parse MemcachedNode occur error, please check your properties file");
-        }
-        for (int i = 0; i < strings.length; i++) {
-            String host = strings[0];
-            String[] split = StringUtils.split(host, ":");
-            if(split == null || split.length != 4){
-                logger.error("parse MemcachedNode occur error, please check your hostName");
-            }
-            int port = Integer.valueOf(strings[1]);
-            if(port < 0 || port > 65535){
-                logger.error("parse MemcachedNode occur error, please check your port");
-            }
-            memcachedNode = new MemcachedNode(host, port);
-        }
-        return memcachedNode;
     }
 }

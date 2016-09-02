@@ -2,3 +2,4 @@
 .idea
 memcached-distributed.iml
 build
+test

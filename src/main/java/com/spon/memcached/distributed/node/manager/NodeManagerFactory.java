@@ -1,7 +1,6 @@
-package com.youxigu.memcached.distributed.node.manager;
+package com.spon.memcached.distributed.node.manager;
 
-import com.youxigu.memcached.distributed.algorithm.Algorithm;
-import com.youxigu.memcached.distributed.node.MemcachedNode;
+import com.spon.memcached.distributed.node.MemcachedNode;
 
 /**
  * Created by a on 2016/8/27.

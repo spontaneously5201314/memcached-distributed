@@ -1,4 +1,4 @@
-package com.youxigu.constants;
+package com.spon.constants;
 
 /**
  * Created by myg on 2016/8/30.

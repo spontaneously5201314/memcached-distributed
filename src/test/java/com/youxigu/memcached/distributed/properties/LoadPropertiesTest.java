@@ -1,5 +1,6 @@
 package com.youxigu.memcached.distributed.properties;
 
+import com.spon.memcached.distributed.properties.LoadProperties;
 import org.junit.Test;
 
 /**

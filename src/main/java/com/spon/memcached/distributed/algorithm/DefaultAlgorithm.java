@@ -1,6 +1,6 @@
-package com.youxigu.memcached.distributed.algorithm;
+package com.spon.memcached.distributed.algorithm;
 
-import com.youxigu.utils.KeyUtils;
+import com.spon.utils.KeyUtils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

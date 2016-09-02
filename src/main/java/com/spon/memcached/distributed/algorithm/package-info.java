@@ -1,7 +1,7 @@
 /**
  * Created by a on 2016/8/29.
  */
-package com.youxigu.memcached.distributed.algorithm;
+package com.spon.memcached.distributed.algorithm;
 
 /*
 * this package is for algorithm to implements hash.

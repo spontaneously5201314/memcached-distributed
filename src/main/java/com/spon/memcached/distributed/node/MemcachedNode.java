@@ -1,6 +1,4 @@
-package com.youxigu.memcached.distributed.node;
-
-import java.net.SocketAddress;
+package com.spon.memcached.distributed.node;
 
 /**
  * Created by a on 2016/8/27.

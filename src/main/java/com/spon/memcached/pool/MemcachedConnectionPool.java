@@ -1,6 +1,6 @@
-package com.youxigu.memcached.pool;
+package com.spon.memcached.pool;
 
-import com.youxigu.constants.Constants;
+import com.spon.constants.Constants;
 import net.spy.memcached.MemcachedClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

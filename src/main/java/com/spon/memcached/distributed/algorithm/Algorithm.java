@@ -1,4 +1,4 @@
-package com.youxigu.memcached.distributed.algorithm;
+package com.spon.memcached.distributed.algorithm;
 
 /**
  * Created by a on 2016/8/27.

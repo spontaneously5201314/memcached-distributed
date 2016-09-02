@@ -1,4 +1,4 @@
-package com.youxigu.memcached.distributed.algorithm;
+package com.spon.memcached.distributed.algorithm;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

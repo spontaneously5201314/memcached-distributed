@@ -1,6 +1,6 @@
-package com.youxigu.memcached.servlet;
+package com.spon.memcached.servlet;
 
-import com.youxigu.memcached.pool.MemcachedConnectionPool;
+import com.spon.memcached.pool.MemcachedConnectionPool;
 import net.spy.memcached.MemcachedClient;
 
 import javax.servlet.ServletException;

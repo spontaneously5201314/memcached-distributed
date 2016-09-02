@@ -1,9 +1,9 @@
-package com.youxigu.memcached.distributed.node.manager;
+package com.spon.memcached.distributed.node.manager;
 
-import com.youxigu.memcached.distributed.algorithm.Algorithm;
-import com.youxigu.memcached.distributed.node.MemcachedNode;
-import com.youxigu.memcached.pool.MemcachedConnectionPool;
-import com.youxigu.utils.StringUtils;
+import com.spon.memcached.distributed.algorithm.Algorithm;
+import com.spon.memcached.pool.MemcachedConnectionPool;
+import com.spon.utils.StringUtils;
+import com.spon.memcached.distributed.node.MemcachedNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

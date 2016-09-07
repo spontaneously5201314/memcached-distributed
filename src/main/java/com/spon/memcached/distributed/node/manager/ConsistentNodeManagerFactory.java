@@ -34,7 +34,20 @@ public final class ConsistentNodeManagerFactory extends NodeManagerFactoryAdapte
         init();
     }
 
-    private void init(){// 初始化一致性hash环
+    public void setAlgorithm(Algorithm algorithm) {
+        this.algorithm = algorithm;
+    }
+
+    @Override
+    public Algorithm getUsedAlgorithm() {
+        return algorithm;
+    }
+
+    public void setPropertiesFilePath(String propertiesFilePath) {
+        this.propertiesFilePath = propertiesFilePath;
+    }
+
+    public void init(){// 初始化一致性hash环
         logger.info("Start to init the consistent hash circle");
         nodeMap = new TreeMap<Long, MemcachedNode>();
 

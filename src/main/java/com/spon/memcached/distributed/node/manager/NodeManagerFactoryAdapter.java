@@ -1,5 +1,6 @@
 package com.spon.memcached.distributed.node.manager;
 
+import com.spon.memcached.distributed.algorithm.Algorithm;
 import com.spon.utils.StringUtils;
 import com.spon.memcached.distributed.node.MemcachedNode;
 import org.slf4j.Logger;
@@ -38,4 +39,10 @@ public abstract class NodeManagerFactoryAdapter implements NodeManagerFactory {
 
     @Override
     public abstract List<MemcachedNode> getAllNodes();
+
+    @Override
+    public abstract void init();
+
+    @Override
+    public abstract Algorithm getUsedAlgorithm();
 }

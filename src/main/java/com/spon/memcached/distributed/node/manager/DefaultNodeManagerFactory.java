@@ -30,6 +30,17 @@ public class DefaultNodeManagerFactory extends NodeManagerFactoryAdapter{
         this.algorithm = algorithm;
     }
 
+
+    @Override
+    public void init() {
+
+    }
+
+    @Override
+    public Algorithm getUsedAlgorithm() {
+        return algorithm;
+    }
+
     @Override
     public MemcachedNode getNodeByKey(String key) {
         MemcachedNode memcachedNode = memcachedNodeMap.get(algorithm.hash(key));

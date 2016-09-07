@@ -5,7 +5,10 @@ import com.spon.memcached.distributed.node.MemcachedNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -89,5 +92,16 @@ public class DefaultNodeManagerFactory extends NodeManagerFactoryAdapter{
         }
         //替换node
         memcachedNodeMap.put(algorithm.hash(newKey), parseKeyToNode(newKey));
+    }
+
+    @Override
+    public List<MemcachedNode> getAllNodes() {
+        List<MemcachedNode> list = new ArrayList<>(memcachedNodeMap.size());
+        Set<Map.Entry<Long, MemcachedNode>> entries = memcachedNodeMap.entrySet();
+        for (Map.Entry<Long, MemcachedNode> entry : entries) {
+            MemcachedNode node = entry.getValue();
+            list.add(node);
+        }
+        return list;
     }
 }

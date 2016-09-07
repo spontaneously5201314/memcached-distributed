@@ -22,7 +22,7 @@ public class MemcachedConnectionPool {
 
     private SortedMap<Long, MemcachedClient> connetions = null;
 
-    private static long KEEP_ALIVED_TIME = Constants.KEEP_ALIVED_TIME;
+    private static final long KEEP_ALIVED_TIME = Constants.KEEP_ALIVED_TIME;
 
     private ScheduledThreadPoolExecutor stp = null;
 

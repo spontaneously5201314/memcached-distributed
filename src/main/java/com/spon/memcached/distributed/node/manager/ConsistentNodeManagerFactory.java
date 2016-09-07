@@ -136,4 +136,9 @@ public final class ConsistentNodeManagerFactory extends NodeManagerFactoryAdapte
     public void addBackUp(String key){
         backup.add(parseKeyToNode(key));
     }
+
+    @Override
+    public List<MemcachedNode> getAllNodes() {
+        return shards;
+    }
 }

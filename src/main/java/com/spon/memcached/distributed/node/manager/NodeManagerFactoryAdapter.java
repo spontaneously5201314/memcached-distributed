@@ -5,6 +5,8 @@ import com.spon.memcached.distributed.node.MemcachedNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
 /**
  * Created by myg on 2016/8/30.
  */
@@ -34,4 +36,6 @@ public abstract class NodeManagerFactoryAdapter implements NodeManagerFactory {
         return memcachedNode;
     }
 
+    @Override
+    public abstract List<MemcachedNode> getAllNodes();
 }

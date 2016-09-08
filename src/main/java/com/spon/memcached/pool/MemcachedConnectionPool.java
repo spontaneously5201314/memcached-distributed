@@ -132,4 +132,9 @@ public class MemcachedConnectionPool {
             instance.testAllConnections();
         }
     }
+
+    //TODO  这个是为了学习gradle的打包测试用的
+//    public static void main(String[] args) {
+//        System.out.println("构建成功");
+//    }
 }

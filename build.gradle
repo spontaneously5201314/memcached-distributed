@@ -1,14 +1,32 @@
 group 'com.spon'
 version '1.0-SNAPSHOT'
-
+//这个是打成什么包，如果是web应用就写war
 apply plugin: 'java'
+//下面这个是开发工具的插件，如果是Eclipse就写eclipse
+apply plugin: 'idea'
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.7
+//下面的这两个encoding最好加上，不然在使用gradle build的时候，会报编码错误
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+//这个是指定全局变量
+ext.spon = 'spontaneously'
+version = '1.0'
+//这个是源码集，放的是编译的时候源码的位置和编译输出的位置
+sourceSets{
+    main{
+        resources{
+            srcDir 'src/main'
+        }
+        output.resourcesDir = 'build/classes/main'
+    }
+}
 
 repositories {
     mavenCentral()
 }
 
+//如果是想要获取最新的jar，可以在后面的version中写成2.0.+，这个表示是获得2.0这个大版本中最新的小版本jar
 dependencies {
     // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.7'
@@ -22,10 +40,39 @@ dependencies {
     compile group: 'proxool', name: 'proxool', version: '0.8.3'
     // https://mvnrepository.com/artifact/org.springframework/spring-context
     compile group: 'org.springframework', name: 'spring-context', version: '4.2.0.RELEASE'
-// https://mvnrepository.com/artifact/org.springframework/spring-context
+    // https://mvnrepository.com/artifact/org.springframework/spring-context
     compile group: 'org.springframework', name: 'spring-beans', version: '4.2.0.RELEASE'
-// https://mvnrepository.com/artifact/org.springframework/spring-context
+    // https://mvnrepository.com/artifact/org.springframework/spring-context
     compile group: 'org.springframework', name: 'spring-core', version: '4.2.0.RELEASE'
     compile group: 'org.springframework', name: 'spring-web', version: '4.2.0.RELEASE'
+    compile group: 'org.springframework', name: 'spring-orm', version: '4.2.0.RELEASE'
     testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+//TODO  这里有一个问题，就是我打出来的jar里面每个文件都是双份的，这个问题可能是这里的copy问题，还没找到原因和解决办法
+task copyJars(type: Copy){
+    from configurations.runtime
+    into 'build/libs/lib'
+}
+
+task copyConfigs(type: Copy){
+    from 'src/main/resources'
+    into 'build/libs/resources'
+}
+
+task generateJar(type: Jar, dependsOn: [copyJars, copyConfigs, jar]) {
+    manifest {
+        attributes ('Implementation-Title': 'memcached-distributed',
+                'Implementation-Version': version,
+                'Created-By': spon,
+                'Main-Class': 'com.spon.memcached.pool.MemcachedConnectionPool',
+                'Class-Path': configurations.compile.collect {'lib/' + it.getName()}.join(' ')
+        )
+    }
+    into('') {
+        from "build/classes/main"
+    }
+    into('') {
+        from "$projectDir/src/main/resources"
+    }
 }

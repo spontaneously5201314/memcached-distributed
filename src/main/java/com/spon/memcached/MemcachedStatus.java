@@ -10,6 +10,7 @@ public class MemcachedStatus implements Serializable {
     private String status;
 
     public static final String IDLE = "IDLE";
+    public static final String BUSY = "BUSY";
 
     public MemcachedStatus() {
         this.status = IDLE;

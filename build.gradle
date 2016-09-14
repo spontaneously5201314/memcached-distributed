@@ -1,7 +1,7 @@
 group 'com.spon'
 version '1.0-SNAPSHOT'
 //这个是打成什么包，如果是web应用就写war
-apply plugin: 'java'
+apply plugin: 'war'
 //下面这个是开发工具的插件，如果是Eclipse就写eclipse
 apply plugin: 'idea'
 

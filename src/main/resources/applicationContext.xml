@@ -61,9 +61,7 @@
 
     <bean id="factory" class="com.spon.memcached.distributed.node.manager.ConsistentNodeManagerFactory" init-method="init">
         <property name="algorithm" ref="consistentAlgorithm"/>
-       <!-- <property name="propertiesFilePath">
-            <value>classpath:memcached.properties</value>
-        </property>-->
+        <property name="propertiesFilePath" value="classpath:memcached.properties"/>
     </bean>
 
     <bean id="memcachedConnectionPool" class="com.spon.memcached.pool.MemcachedConnectionPool" init-method="init">

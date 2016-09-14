@@ -1,7 +1,5 @@
 package com.spon.memcached.distributed.properties;
 
-import com.spon.memcached.distributed.algorithm.DefaultAlgorithm;
-import com.spon.memcached.distributed.node.manager.ConsistentNodeManagerFactory;
 import com.spon.memcached.distributed.node.manager.NodeManagerFactory;
 import com.spon.utils.StringUtils;
 import org.slf4j.Logger;
@@ -55,13 +53,13 @@ public class LoadProperties {
 //        }
 
         //TODO  这种是测试的时候为了方便写的
-        for (String s : strings) {
-            DefaultAlgorithm algorithm = new DefaultAlgorithm();
-            algorithm.setAlgorithmName("NATIVE_HASH");
-            ConsistentNodeManagerFactory factory;
-            factory = new ConsistentNodeManagerFactory(algorithm, "./memcached.properties");
-            factory.addNode(s);
-            factory.getNodeByKey(s).toString();
-        }
+//        for (String s : strings) {
+//            DefaultAlgorithm algorithm = new DefaultAlgorithm();
+//            algorithm.setAlgorithmName("NATIVE_HASH");
+//            ConsistentNodeManagerFactory factory;
+//            factory = new ConsistentNodeManagerFactory(algorithm, "./memcached.properties");
+//            factory.addNode(s);
+//            factory.getNodeByKey(s).toString();
+//        }
     }
 }

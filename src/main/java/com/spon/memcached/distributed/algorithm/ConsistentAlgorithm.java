@@ -6,7 +6,7 @@ import java.nio.ByteOrder;
 /**
  * Created by a on 2016/8/29.
  */
-public class ConsistentAlgorithm{
+public class ConsistentAlgorithm implements Algorithm {
 
     /**
      *  MurMurHash算法，是非加密HASH算法，性能很高，
@@ -14,7 +14,7 @@ public class ConsistentAlgorithm{
      *  等HASH算法要快很多，而且据说这个算法的碰撞率很低.
      *  http://murmurhash.googlepages.com/
      */
-    private long hash(String key) {
+    public long hash(String key) {
 
         ByteBuffer buf = ByteBuffer.wrap(key.getBytes());
         int seed = 0x1234ABCD;

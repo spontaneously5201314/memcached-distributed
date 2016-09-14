@@ -15,7 +15,7 @@ import java.util.*;
 /**
  * Created by myg on 2016/8/30.
  */
-public final class ConsistentNodeManagerFactory extends NodeManagerFactoryAdapter{
+public class ConsistentNodeManagerFactory extends NodeManagerFactoryAdapter{
     private static final Logger logger = LoggerFactory.getLogger(ConsistentNodeManagerFactory.class);
 
     private TreeMap<Long, MemcachedNode> nodeMap = null;//虚拟节点
@@ -27,12 +27,12 @@ public final class ConsistentNodeManagerFactory extends NodeManagerFactoryAdapte
     private Algorithm algorithm = null;
     private String propertiesFilePath = null;
 
-    public ConsistentNodeManagerFactory(Algorithm algorithm, String propertiesFilePath) {
-        super();
-        this.algorithm = algorithm;
-        this.propertiesFilePath = propertiesFilePath;
-        init();
-    }
+//    public ConsistentNodeManagerFactory(Algorithm algorithm, String propertiesFilePath) {
+//        super();
+//        this.algorithm = algorithm;
+//        this.propertiesFilePath = propertiesFilePath;
+//        init();
+//    }
 
     public void setAlgorithm(Algorithm algorithm) {
         this.algorithm = algorithm;
